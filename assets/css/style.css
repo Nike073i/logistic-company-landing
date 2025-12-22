@@ -263,6 +263,10 @@ a:hover {
     width: 100%;
 }
 
+.icon-button {
+    background-color: transparent;
+}
+
 .form-group {
     width: 100%;
     margin-bottom: 25px;
@@ -308,6 +312,10 @@ a:hover {
 
 .navbar--center {
     justify-content: center;
+}
+
+.navbar-toggler {
+    display: none;
 }
 
 .navbar-nav {
@@ -737,11 +745,11 @@ a:hover {
 }
 
 .news-article {
-    max-width: 100%;
+    width: 100%;
 }
 
 .news-article--tile {
-    width: 500px;
+    max-width: 500px;
 }
 
 .news-article__title {
@@ -950,4 +958,35 @@ a:hover {
     width: 100%;
     height: auto;
     max-width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --header-height: 50px;
+    }
+
+    .header { 
+        background-color: rgba(0, 0, 0,.9);
+    }
+
+    .navbar-nav.collapsed {
+        display: none;
+    }
+
+    .navbar-nav {
+        background-color: rgba(0, 0, 0, .85);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        min-height: calc(100vh - var(--header-height));
+        flex-direction: column;
+        align-items: stretch;
+        text-align: right;
+        padding: 5px 50px 0px;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
 }
