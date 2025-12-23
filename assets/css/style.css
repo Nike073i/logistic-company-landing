@@ -960,7 +960,16 @@ a:hover {
     max-width: 100%;
 }
 
+/* tablet */
 @media screen and (max-width: 767px) {
+    
+    /* toolkits */
+    .padded {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Header */
     :root {
         --header-height: 50px;
     }
