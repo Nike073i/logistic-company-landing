@@ -998,4 +998,35 @@ a:hover {
     .navbar-toggler {
         display: block;
     }
+
+    /* Intro index */
+    .intro--index { 
+        height: auto;
+    }
+
+    .intro-wrapper {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: calc(var(--header-height) + 25px);
+        padding-bottom: 25px;
+    }
+
+    .callback--index {
+        position: static;
+    }
+
+    .brand {
+        text-align: center;
+    }
+
+    .brand__title {
+        font-size: 90px;
+        line-height: 90px;
+    }
+
+    .brand__amp {
+        font-size: 110px;
+        right: 0;
+        left: 0;
+    }
 }
