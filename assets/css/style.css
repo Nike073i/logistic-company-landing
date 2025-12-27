@@ -383,7 +383,6 @@ a:hover {
     index
 */
 
-
 .header {
     height: var(--header-height);
     background-color: rgba(0, 0, 0, .2);
@@ -425,6 +424,7 @@ a:hover {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    column-gap: 20px;
 }
 
 .intro--index {
@@ -466,7 +466,8 @@ a:hover {
 }
 
 .callback {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     background-color: #004AF2;
     overflow: hidden;
     border-radius: 5px;
@@ -539,7 +540,7 @@ a:hover {
 .clients {
     display: grid;
     grid-template-columns: 5fr 4fr;
-    column-gap: 90px;
+    gap: 90px;
     margin-bottom: 60px;
 }
 
@@ -567,12 +568,17 @@ a:hover {
     z-index: -1;
 }
 
+.clients-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
 .clients__motto {
     display: inline-block;
-    margin-left: 40px;
-    min-height: 47px;
-    padding-top: 5px;
-    background: url("../icons/heart-empty.svg") no-repeat left 19px top;
+    line-height: 50px;
+    background: url("../icons/heart-empty.svg") no-repeat left 19px top 5px;
     font-size: 18px;
     color: #464646;
 }
@@ -609,6 +615,7 @@ a:hover {
 .benefits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     align-items: start;
 }
 
@@ -812,6 +819,8 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 45px;
+    overflow: auto;
 }
 
 .modal-wrapper {
@@ -958,13 +967,60 @@ a:hover {
     max-width: 100%;
 }
 
+
+/* Media Queries */
+
+@media screen and (max-width: 991px) {
+
+    /* Services */
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand__title {
+        font-size: 90px;
+        line-height: 90px;
+    }
+
+    .brand__amp {
+        font-size: 110px;
+    }
+
+    /* footer */
+    .footer {
+        background-size: 350px auto;
+    }
+
+    /* blog: news */
+    .section-wrapper--blog {
+        grid-template-columns: 1fr;
+        row-gap: 30px;
+    }
+
+    .articles-footer {
+        text-align: center;
+    }
+
+    .callback--blog {
+        margin: 0 auto;
+    }
+}
+
 /* tablet */
-@media screen and (max-width: 767px) {
-    
+@media screen and (max-width: 768px) {
+
     /* toolkits */
     .padded {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .page>*:nth-last-child(2) {
+        margin-bottom: 20px;
     }
 
     /* Header */
@@ -972,8 +1028,8 @@ a:hover {
         --header-height: 50px;
     }
 
-    .header { 
-        background-color: rgba(0, 0, 0,.9);
+    .header {
+        background-color: rgba(0, 0, 0, .9);
     }
 
     .navbar-nav.collapsed {
@@ -998,8 +1054,9 @@ a:hover {
     }
 
     /* Intro index */
-    .intro--index { 
+    .intro--index {
         height: auto;
+        margin-bottom: 0;
     }
 
     .intro-wrapper {
@@ -1017,14 +1074,203 @@ a:hover {
         text-align: center;
     }
 
+    .brand__amp {
+        right: 0;
+        left: 0;
+    }
+
+    /* Clients */
+    .section--clients {
+        margin-top: 60px;
+    }
+
+    .clients {
+        grid-template-columns: 1fr;
+        margin-bottom: 15px;
+    }
+
+    .logo-map {
+        gap: 20px;
+    }
+
+    .logo-map>li {
+        max-width: 130px;
+    }
+
+    .review-item__content>p {
+        margin-bottom: 15px;
+    }
+
+    .clients-footer {
+        justify-content: center;
+    }
+
+    /* Benefits */
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    /* Team */
+    .section--team {
+        padding-bottom: 45px;
+        padding-top: 45px;
+    }
+
+    .members {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .member {
+        max-width: 370px;
+    }
+
+    /* Mission */
+    .section-title--mission {
+        font-size: 70px;
+        line-height: 80px;
+    }
+
+    .mission {
+        margin-top: -60px;
+        padding: 25px;
+    }
+
+    .mission::after {
+        width: calc(100% - 50px);
+    }
+
+    .mission__title {
+        font-size: 24px;
+    }
+
+    .mission__subtitle {
+        font-size: 18px;
+    }
+
+    /* News */
+    .news {
+        grid-template-columns: 1fr;
+        margin-bottom: 30px;
+    }
+
+    .news-article {
+        max-width: none;
+    }
+
+    /* footer */
+    .footer {
+        padding: 20px 0px;
+        background-size: 250px auto;
+    }
+
+    /* blog: intro */
+    .intro--blog {
+        height: 150px;
+    }
+
+    /* privacy: article */
+    .article {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+
+    /* toolkit */
+    .section {
+        margin-top: 30px;
+    }
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    /* Intro index */
+    .callback__header,
+    .callback__content {
+        padding: 20px;
+    }
+
+    .callback__title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
     .brand__title {
-        font-size: 90px;
-        line-height: 90px;
+        font-size: 60px;
+        line-height: 55px;
     }
 
     .brand__amp {
-        font-size: 110px;
-        right: 0;
-        left: 0;
+        font-size: 90px;
+    }
+
+    /* Services */
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .card--services {
+        padding: 0px;
+    }
+
+    .section-title--services {
+        bottom: -6px;
+    }
+
+    /* Mission */
+    .mission {
+        margin-top: -70px;
+        padding: 15px;
+    }
+
+    .mission::after {
+        width: calc(100% - 30px);
+    }
+
+    .mission__title {
+        font-size: 20px;
+    }
+
+    .mission__subtitle {
+        font-size: 16px;
+    }
+
+    /* footer */
+    .footer {
+        background-size: 180px auto;
+    }
+
+    /* Modal common */
+    .modal {
+        padding: 40px 10px;
+        justify-content: flex-start;
+    }
+
+    .modal__close {
+        right: 0px;
+        top: -28px;
+    }
+
+    .modal-contacts__line {
+        margin-bottom: 15px;
+    }
+
+    /* Modal Become client */
+    .modal__header--become-client,
+    .modal__content--become-client {
+        padding: 15px 20px;
+    }
+
+    .modal__footer--modal-contacts {
+        padding: 15px 20px;
+    }
+
+    /* Modal Thanks */
+    .modal__header--thanks {
+        margin-top: 15px;
+        padding: 0 15px;
     }
 }
