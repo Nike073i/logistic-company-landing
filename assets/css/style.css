@@ -327,6 +327,7 @@ a:hover {
     font-family: "Lato";
     padding: 0 15px;
     line-height: calc(var(--header-height));
+    transition: background-color 200ms linear;
 }
 
 .nav-item.active {
