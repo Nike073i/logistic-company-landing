@@ -214,7 +214,7 @@
                 </div>
 
                 <div class="clients-footer">
-                    <button type="button" class="btn btn--primary btn--shadow"><span>Become a client</span></button>
+                    <button type="button" class="btn btn--primary btn--shadow" data-modal="become-client-modal"><span>Become a client</span></button>
                     <span class="clients__motto">
                         we love our clients
                     </span>
@@ -392,7 +392,7 @@
     </div>
 
     <!-- Become client - modal -->
-    <div class="overlay modal" style="display: none;">
+    <div id="become-client-modal" class="overlay modal" data-modal-close>
         <div class="modal-wrapper">
             <div class="modal__header modal__header--become-client text-center">
                 <h3 class="become-client__title">Need to deliver your cargo?</h3>
@@ -428,7 +428,7 @@
                     </p>
                 </address>
             </div>
-            <button class="modal__close">
+            <button class="modal__close" data-modal-close>
                 <img class="img" src="assets/icons/close.svg" alt="Close">
             </button>
         </div>
@@ -436,7 +436,7 @@
     </div>
 
     <!-- Thanks - modal -->
-    <div class="overlay modal" style="display: none;">
+    <div id="thanks-modal" class="overlay modal" data-modal-close>
         <div class="modal-wrapper">
 
             <div class="modal__header modal__header--thanks text-center">
@@ -458,7 +458,7 @@
                 </address>
             </div>
 
-            <button class="modal__close">
+            <button class="modal__close" data-modal-close>
                 <img class="img" src="assets/icons/close.svg" alt="Close">
             </button>
         </div>

@@ -97,6 +97,7 @@ $(document).ready(() => {
   const $intro = $(".intro");
   const $window = $(window);
   const $html = $("html");
+  const $body = $(document.body);
 
   /* set header dark after section intro */
   const SET_HEADER_OPACITY_THROTTLE_DELAY = 250;
@@ -175,6 +176,35 @@ $(document).ready(() => {
   $window.on("scroll", function () {
     const scrollTop = $(this).scrollTop();
     throttledSpyHandler(scrollTop);
+  });
+
+  /* Modals */
+  const MODAL_TRIGGER_ATTR = "modal";
+  const MODAL_OPEN_CLASSNAME = "show";
+  const MODAL_TRIGGER_SELECTOR = `[data-${MODAL_TRIGGER_ATTR}]`;
+  const MODAL_CLOSE_ATTR = `modal-close`;
+  const MODAL_CLOSE_SELECTOR = `[data-${MODAL_CLOSE_ATTR}]`;
+  const NOSCROLL_CLASSNAME = "no-scroll";
+  const MODAL_CONTENT_SELECTOR = ".modal-wrapper";
+  const MODAL_CLASSNAME = '.modal';
+
+  $(MODAL_TRIGGER_SELECTOR).on("click", function (e) {
+    e.preventDefault();
+    const modalId = $(this).data(MODAL_TRIGGER_ATTR);
+    const $modal = $(`#${modalId}`);
+    $body.addClass(NOSCROLL_CLASSNAME);
+    $modal.addClass(MODAL_OPEN_CLASSNAME);
+  });
+
+  $(MODAL_CLOSE_SELECTOR).on("click", function (e) {
+    e.preventDefault();
+    const $modal = $(this).closest(MODAL_CLASSNAME);
+    $modal.removeClass(MODAL_OPEN_CLASSNAME);
+    $body.removeClass(NOSCROLL_CLASSNAME);
+  });
+
+  $(MODAL_CONTENT_SELECTOR).on('click', function(e) {
+    e.stopPropagation();
   });
 
   /* invoke by load */
