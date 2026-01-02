@@ -207,6 +207,40 @@ $(document).ready(() => {
     e.stopPropagation();
   });
 
+  /* 
+    Carousel 
+    lib - https://kenwheeler.github.io/slick/
+  */
+  const CAROUSEL_TARGET_ATTR = "carousel-target";
+  const CAROUSEL_NEXT_ATTR = "carousel-next";
+  const CAROUSEL_NEXT_SELECTOR = `[data-${CAROUSEL_NEXT_ATTR}]`;
+  const CAROUSEL_PREV_ATTR = "carousel-prev";
+  const CAROUSEL_PREV_SELECTOR = `[data-${CAROUSEL_PREV_ATTR}]`;
+  const INTRO_CAROUSEL_CONTAINER_SELECTOR = "#intro-carousel";
+
+  $(INTRO_CAROUSEL_CONTAINER_SELECTOR).slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 4000,
+    arrows: false,
+    speed: 500,
+    draggable: false
+  });
+
+  const slideActionHandler = (selector, action) => {
+    $(selector).each(function () {
+      const $this = $(this);
+      const targetId = $this.data(CAROUSEL_TARGET_ATTR);
+      const $target = $(`#${targetId}`);
+      if (!isExists($target)) return;
+      $this.click(function () { action($target) });
+    });
+  }
+
+  slideActionHandler(CAROUSEL_NEXT_SELECTOR, target => target.slick('slickNext'));
+  slideActionHandler(CAROUSEL_PREV_SELECTOR, target => target.slick('slickPrev'));
+
   /* invoke by load */
   spyHandler($window.scrollTop());
   setHeaderOpacity();

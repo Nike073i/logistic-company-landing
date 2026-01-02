@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>CenterLogistic</title>
 </head>
 
@@ -46,6 +51,37 @@
 
         <!-- Intro -->
         <div id="intro" class="intro intro--index">
+        <div id="intro-carousel">
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-1.jpg"
+              alt="slide-bg"
+            />
+          </div>
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-2.jpg"
+              alt="slide-bg"
+            />
+          </div>
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-3.jpg"
+              alt="slide-bg"
+            />
+          </div>
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-4.jpg"
+              alt="slide-bg"
+            />
+          </div>
+        </div>
+
             <div class="intro-wrapper intro-wrapper--index content-center padded">
                 <div class="callback callback--index">
                     <div class="callback__header">
@@ -80,6 +116,23 @@
                         <span>Logistic</span>
                     </h1>
                 </div>
+
+          <div class="carousel-ctl">
+            <button
+              class="carousel-ctl__button carousel-ctl__button--prev"
+              data-carousel-target="intro-carousel"
+              data-carousel-prev
+            >
+              Prev
+            </button>
+            <button
+              class="carousel-ctl__button carousel-ctl__button--next"
+              data-carousel-target="intro-carousel"
+              data-carousel-next
+            >
+              Next
+            </button>
+          </div>
             </div>
         </div>
 
@@ -465,10 +518,16 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
     <script src="assets/js/app.js"></script>
 </body>
 
