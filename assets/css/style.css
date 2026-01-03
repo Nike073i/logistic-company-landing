@@ -623,17 +623,72 @@ a:hover {
 
 .reviews {
     position: relative;
+    overflow: hidden;
 }
-
-.reviews::before {
+.reviews::before,
+.reviews::after {
     content: "";
     display: block;
-    background: url("../images/reviews/lines.svg") no-repeat;
-    width: 92px;
-    height: 126px;
+    width: 10px;
+    height: 100%;
     position: absolute;
-    top: -15px;
-    z-index: -1;
+    top: 0;
+    z-index: 1;
+}
+
+.reviews:before {
+    left: 0;
+    background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+}
+
+.reviews:after {
+    right: 0;
+    background-image: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+}
+
+.review-item {
+    padding: 0 10px;
+}
+
+.reviews .slick-list {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.reviews .slick-dots {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+}
+
+.reviews .slick-dots li {
+    margin: 0 5px;
+}
+
+.reviews .slick-dots li.slick-active button {
+    background-color: #004AF2;
+    box-shadow: 0 0 0 5px rgba(0, 74, 242, .11);
+}
+
+.reviews .slick-dots button {
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background: #DBDBDB;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: transparent;
+    font-size: 0;
+    transition: box-shadow .2s linear;
+}
+
+.reviews .slick-dots button:focus {
+    outline: none;
 }
 
 .clients-footer {
@@ -653,9 +708,21 @@ a:hover {
 
 .review-item__header {
     display: flex;
+    position: relative;
     gap: 20px;
     align-items: center;
     margin-bottom: 30px;
+}
+
+.review-item__header::before {
+    content: "";
+    display: block;
+    background: url("../images/reviews/lines.svg") no-repeat;
+    width: 92px;
+    height: 126px;
+    position: absolute;
+    top: -15px;
+    z-index: -1;
 }
 
 .review-item__person {

@@ -208,7 +208,7 @@ $(document).ready(() => {
   });
 
   /* 
-    Carousel 
+    intro bg carousel 
     lib - https://kenwheeler.github.io/slick/
   */
   const CAROUSEL_TARGET_ATTR = "carousel-target";
@@ -240,6 +240,21 @@ $(document).ready(() => {
 
   slideActionHandler(CAROUSEL_NEXT_SELECTOR, target => target.slick('slickNext'));
   slideActionHandler(CAROUSEL_PREV_SELECTOR, target => target.slick('slickPrev'));
+
+  /* 
+    reviews carousel 
+    lib - https://kenwheeler.github.io/slick/
+  */
+  const REVIEWS_CAROUSEL_CONTAINER_SELECTOR = "#reviews";
+
+  $(REVIEWS_CAROUSEL_CONTAINER_SELECTOR).slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 500,
+    dots: true,
+    arrows: false
+  });
+  
 
   /* invoke by load */
   spyHandler($window.scrollTop());
