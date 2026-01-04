@@ -647,6 +647,7 @@ a:hover {
 }
 
 .review-item {
+    display: none;
     padding: 0 10px;
 }
 
