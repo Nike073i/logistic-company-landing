@@ -255,6 +255,23 @@ $(document).ready(() => {
     arrows: false
   });
   
+  /* navbar toggler */
+  const TOGGLER_SELECTOR = '.navbar-toggler';
+  const NAVBAR_SELECTOR = '.navbar-nav';
+  const NAV_ITEM_SELECTOR = '.nav-item';
+  const NAVBAR_SHOW_CLASSNAME = 'show';
+
+  const $navbar = $(NAVBAR_SELECTOR);
+  function closeMenu(e) {
+    e.preventDefault();
+    $navbar.toggleClass(NAVBAR_SHOW_CLASSNAME);
+  }
+
+  if (isExists($navbar)) {
+    $(TOGGLER_SELECTOR).click(closeMenu);
+    $(NAV_ITEM_SELECTOR).click(closeMenu);
+  }
+
 
   /* invoke by load */
   spyHandler($window.scrollTop());
