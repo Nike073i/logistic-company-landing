@@ -2,9 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>CenterLogistic</title>
 </head>
 
@@ -14,25 +20,28 @@
         <!-- Header -->
         <header class="header">
             <nav class="navbar navbar--around content-center padded">
-                <img class="navbar-brand" src="assets/icons/logo.svg" alt="CenterLogistic">
+                <img class="navbar-brand" src="assets/icons/logo.svg" data-scroll="intro" alt="CenterLogistic">
                 <button class="icon-button navbar-toggler" type="button">
                     <img class="navbar-toggler-icon" src="assets/icons/burger.svg" alt="menu">
                 </button>
-                <ul class="navbar-nav collapsed">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#Services">Services</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item" data-scrollspy="services" data-scrollspy-class="active">
+                        <a class="nav-link" href="#Services" data-scroll="services">Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Clients">Clients</a>
+                    <li class="nav-item" data-scrollspy="clients" data-scrollspy-class="active">
+                        <a class="nav-link" href="#Clients" data-scroll="clients">Clients</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Benefits">Benefits</a>
+                    <li class="nav-item" data-scrollspy="benefits" data-scrollspy-class="active">
+                        <a class="nav-link" href="#Benefits" data-scroll="benefits">Benefits</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Team">Team</a>
+                    <li class="nav-item" data-scrollspy="team" data-scrollspy-class="active">
+                        <a class="nav-link" href="#Team" data-scroll="team">Team</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#News">News</a>
+                    <li class="nav-item" data-scrollspy="mission" data-scrollspy-class="active">
+                        <a class="nav-link" href="#Mission" data-scroll="mission">Mission</a>
+                    </li>
+                    <li class="nav-item" data-scrollspy="news" data-scrollspy-class="active">
+                        <a class="nav-link" href="#News" data-scroll="news">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Contact">Contact Us</a>
@@ -42,9 +51,40 @@
         </header>
 
         <!-- Intro -->
-        <div class="intro intro--index">
+        <div id="intro" class="intro intro--index">
+        <div id="intro-carousel">
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-1.jpg"
+              alt="slide-bg"
+            />
+          </div>
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-2.jpg"
+              alt="slide-bg"
+            />
+          </div>
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-3.jpg"
+              alt="slide-bg"
+            />
+          </div>
+          <div class="slider-item">
+            <img
+              class="slider-item__photo"
+              src="assets/images/slider/slide-4.jpg"
+              alt="slide-bg"
+            />
+          </div>
+        </div>
+
             <div class="intro-wrapper intro-wrapper--index content-center padded">
-                <div class="callback callback--index">
+                <div class="callback callback--index" data-aos="fade-right">
                     <div class="callback__header">
                         <h3 class="callback__title">Get Callback</h3>
                         <p class="callback__description">
@@ -69,7 +109,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="brand">
+                <div class="brand"  data-aos="fade-left">
                     <p class="brand__countries">USA, Europe, Asia</p>
                     <h1 class="brand__title">
                         <span>Trans</span>
@@ -77,16 +117,33 @@
                         <span>Logistic</span>
                     </h1>
                 </div>
+
+          <div class="carousel-ctl">
+            <button
+              class="carousel-ctl__button carousel-ctl__button--prev"
+              data-carousel-target="intro-carousel"
+              data-carousel-prev
+            >
+              Prev
+            </button>
+            <button
+              class="carousel-ctl__button carousel-ctl__button--next"
+              data-carousel-target="intro-carousel"
+              data-carousel-next
+            >
+              Next
+            </button>
+          </div>
             </div>
         </div>
 
         <!-- Services -->
-        <section class="section">
+        <section id="services" class="section">
             <div class="section-wrapper content-center padded">
                 <div class="card card--services">
                     <h2 class="section-title section-title--services">Services</h2>
                     <div class="services">
-                        <div class="service-item">
+                        <div class="service-item" data-aos="fade-down">
                             <h3 class="service-item__header">Ground Shipping</h3>
                             <p class="service-item__description">Lorem ipsum dolor sit amet, consetetur sadipscing
                                 elitr,
@@ -97,7 +154,7 @@
                             </div>
                         </div>
 
-                        <div class="service-item">
+                        <div class="service-item" data-aos="fade-down" data-aos-delay="100">
                             <h3 class="service-item__header">Railway Shipping</h3>
                             <p class="service-item__description">Lorem ipsum dolor sit amet, consetetur sadipscing
                                 elitr,
@@ -109,7 +166,7 @@
 
                         </div>
 
-                        <div class="service-item">
+                        <div class="service-item" data-aos="fade-down" data-aos-delay="200">
                             <h3 class="service-item__header">Water Shipping</h3>
                             <p class="service-item__description">Lorem ipsum dolor sit amet, consetetur sadipscing
                                 elitr,
@@ -121,7 +178,7 @@
 
                         </div>
 
-                        <div class="service-item">
+                        <div class="service-item" data-aos="fade-down" data-aos-delay="300">
                             <h3 class="service-item__header">Air Shipping</h3>
                             <p class="service-item__description">Lorem ipsum dolor sit amet, consetetur sadipscing
                                 elitr,
@@ -138,7 +195,7 @@
         </section>
 
         <!-- Clients & Reviews -->
-        <section class="section section--clients">
+        <section id="clients" class="section section--clients">
             <div class="section-wrapper content-center padded">
                 <h2 class="section-title">
                     <span>Our </span>
@@ -147,48 +204,84 @@
 
                 <div class="clients">
                     <ul class="logo-map">
-                        <li>
+                        <li data-aos="fade-right" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/atica.svg" alt="atica">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="50" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/hex-lab 1.svg" alt="hex-lab.svg">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="100" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/amara.svg" alt="amara">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="150" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/muzica.svg" alt="muzica.svg">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/solaytic.svg" alt="solaytic.svg">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="250" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/hexa.svg" alt="hexa.svg">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="300" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/utosia.svg" alt="utosia.svg">
                             </a>
                         </li>
-                        <li>
+                        <li data-aos="fade-right" data-aos-delay="350" data-aos-anchor=".clients">
                             <a>
                                 <img class="img" src="assets/images/clients/fox-hub.svg" alt="fox-hub">
                             </a>
                         </li>
                     </ul>
-                    <div class="reviews">
+                    <div id="reviews" class="reviews">
+                        <div class="review-item">
+                            <div class="review-item__header">
+                                <img class="avatar100" src="assets/images/reviews/user_1.jpg" alt="avatar">
+                                <div class="review-item__person">
+                                    <h4 class="review-item__name">John Smith</h4>
+                                    <span class="review-item__company">FOX Hub CEO</span>
+                                </div>
+                            </div>
+                            <div class="review-item__content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cumque sequi iste
+                                    labore tempora amet illo iure consectetur eum. Molestias quibusdam fugiat quidem
+                                    fugit totam voluptatibus ipsum, possimus rerum aspernatur?</p>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure cumque omnis et
+                                    maxime
+                                    voluptatem quasi a temporibus iusto magni expedita quia ipsum impedit doloribus,
+                                    voluptatibus nesciunt eos fugit explicabo asperiores!</p>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-item__header">
+                                <img class="avatar100" src="assets/images/reviews/user_1.jpg" alt="avatar">
+                                <div class="review-item__person">
+                                    <h4 class="review-item__name">John Smith</h4>
+                                    <span class="review-item__company">FOX Hub CEO</span>
+                                </div>
+                            </div>
+                            <div class="review-item__content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cumque sequi iste
+                                    labore tempora amet illo iure consectetur eum. Molestias quibusdam fugiat quidem
+                                    fugit totam voluptatibus ipsum, possimus rerum aspernatur?</p>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure cumque omnis et
+                                    maxime
+                                    voluptatem quasi a temporibus iusto magni expedita quia ipsum impedit doloribus,
+                                    voluptatibus nesciunt eos fugit explicabo asperiores!</p>
+                            </div>
+                        </div>
                         <div class="review-item">
                             <div class="review-item__header">
                                 <img class="avatar100" src="assets/images/reviews/user_1.jpg" alt="avatar">
@@ -211,7 +304,7 @@
                 </div>
 
                 <div class="clients-footer">
-                    <button type="button" class="btn btn--primary btn--shadow"><span>Become a client</span></button>
+                    <button type="button" class="btn btn--primary btn--shadow" data-modal="become-client-modal"><span>Become a client</span></button>
                     <span class="clients__motto">
                         we love our clients
                     </span>
@@ -220,7 +313,7 @@
         </section>
 
         <!-- Benefits -->
-        <div class="section">
+        <section id="benefits" class="section">
             <div class="section-wrapper content-center padded">
                 <h2 class="section-title">
                     <span>Our </span>
@@ -228,7 +321,7 @@
                 </h2>
                 <div class="benefits">
                     <ul class="benefits__list">
-                        <li>
+                        <li data-aos="fade-down" data-aos-anchor=".benefits">
                             <h3 class="benefit-item__header">Safety</h3>
                             <div class="benefit-item__content">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nihil.
@@ -236,7 +329,7 @@
                                     cumque aut</p>
                             </div>
                         </li>
-                        <li>
+                        <li data-aos="fade-down" data-aos-anchor=".benefits"  data-aos-delay="200">
                             <h3 class="benefit-item__header">High quality drivers</h3>
                             <div class="benefit-item__content">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nihil.
@@ -244,7 +337,7 @@
                                     cumque aut</p>
                             </div>
                         </li>
-                        <li>
+                        <li data-aos="fade-down" data-aos-anchor=".benefits"  data-aos-delay="400">
                             <h3 class="benefit-item__header">Guarantee &amp; Support 24/7</h3>
                             <div class="benefit-item__content">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nihil.
@@ -252,7 +345,7 @@
                                     cumque aut</p>
                             </div>
                         </li>
-                        <li>
+                        <li data-aos="fade-down" data-aos-anchor=".benefits"  data-aos-delay="600">
                             <h3 class="benefit-item__header">Personal Manager</h3>
                             <div class="benefit-item__content">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nihil.
@@ -264,17 +357,17 @@
                     <img class="img" src="assets/images/bus.png" alt="bus">
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Team -->
-        <section class="section section--team">
+        <section id="team" class="section section--team">
             <div class="section-wrapper content-center padded">
                 <h2 class="section-title">
                     <span>Our </span>
                     <span>Team</span>
                 </h2>
                 <ul class="members">
-                    <li class="member">
+                    <li class="member" data-aos="fade-in">
                         <img class="member__photo img" src="assets/images/teams/john.png" alt="John Smith">
                         <h3 class="member__name">John Smith</h3>
                         <p class="member__position">Logistic manager - 8 years experience</p>
@@ -289,7 +382,7 @@
                         </ul>
                     </li>
 
-                    <li class="member">
+                    <li class="member" data-aos="fade-in" data-aos-delay="100">
                         <img class="member__photo img" src="assets/images/teams/daniel.png" alt="Daniel Kore">
                         <h3 class="member__name">Daniel Kore</h3>
                         <p class="member__position">Software engineer</p>
@@ -304,7 +397,7 @@
                         </ul>
                     </li>
 
-                    <li class="member">
+                    <li class="member" data-aos="fade-in" data-aos-delay="200">
                         <img class="member__photo img" src="assets/images/teams/anna.png" alt="Anna Filler">
                         <h3 class="member__name">Anna Filler</h3>
                         <p class="member__position">Marketing specialist - 10 years experience</p>
@@ -323,10 +416,10 @@
         </section>
 
         <!-- Mission -->
-        <section class="section">
+        <section id="mission" class="section">
             <div class="section-wrapper content-center padded text-center">
                 <h2 class="section-title section-title--mission">Our mission</h2>
-                <div class="mission card">
+                <div class="mission card" data-aos="fade-up" data-aos-duration="1250">
                     <h3 class="mission__title">To provide our customer qualified services according the international
                     </h3>
                     <h4 class="mission__subtitle">Book your Cargo now &amp; Your job just got a lot easier</h4>
@@ -336,14 +429,14 @@
         </section>
 
         <!-- News -->
-        <section class="section">
+        <section id="news" class="section">
             <div class="section-wrapper content-center padded">
                 <h2 class="section-title section--title--news">
                     <span>Interesting </span>
                     <span>to read</span>
                 </h2>
                 <div class="news">
-                    <article class="news-article news-article--tile">
+                    <article class="news-article news-article--tile" data-aos="fade-in">
                         <h3 class="news-article__title"><a href="">News title</a></h3>
                         <p class="news-article__paragraph">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                             sed
@@ -354,7 +447,7 @@
                             Lorem ipsum dolor sit amet. </p>
                         <time pubdate="21-03-2019" class="news-article__date">21 March, 2019</time>
                     </article>
-                    <article class="news-article news-article--tile">
+                    <article class="news-article news-article--tile" data-aos="fade-in">
                         <h3 class="news-article__title"><a href="">News title</a></h3>
                         <p class="news-article__paragraph">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                             sed
@@ -389,7 +482,7 @@
     </div>
 
     <!-- Become client - modal -->
-    <div class="overlay modal" style="display: none;">
+    <div id="become-client-modal" class="overlay modal" data-modal-close>
         <div class="modal-wrapper">
             <div class="modal__header modal__header--become-client text-center">
                 <h3 class="become-client__title">Need to deliver your cargo?</h3>
@@ -425,7 +518,7 @@
                     </p>
                 </address>
             </div>
-            <button class="modal__close">
+            <button class="modal__close" data-modal-close>
                 <img class="img" src="assets/icons/close.svg" alt="Close">
             </button>
         </div>
@@ -433,7 +526,7 @@
     </div>
 
     <!-- Thanks - modal -->
-    <div class="overlay modal" style="display: none;">
+    <div id="thanks-modal" class="overlay modal" data-modal-close>
         <div class="modal-wrapper">
 
             <div class="modal__header modal__header--thanks text-center">
@@ -455,12 +548,25 @@
                 </address>
             </div>
 
-            <button class="modal__close">
+            <button class="modal__close" data-modal-close>
                 <img class="img" src="assets/icons/close.svg" alt="Close">
             </button>
         </div>
 
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

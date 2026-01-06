@@ -66,7 +66,9 @@ a {
     text-decoration: none;
     color: inherit
 }
-
+a:focus-visible {
+    outline: none;
+}
 
 /*
     default
@@ -286,6 +288,7 @@ a:hover {
 
 .page {
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .content-center {
@@ -327,6 +330,7 @@ a:hover {
     font-family: "Lato";
     padding: 0 15px;
     line-height: calc(var(--header-height));
+    transition: background-color 200ms linear;
 }
 
 .nav-item.active {
@@ -391,6 +395,11 @@ a:hover {
     left: 0;
     right: 0;
     z-index: 1000;
+    transition: background-color 250ms linear;
+}
+
+.header--dark {
+    background-color: rgba(0, 0, 0, .9);
 }
 
 .footer {
@@ -415,6 +424,10 @@ a:hover {
     color: #004AF2;
 }
 
+#intro {
+    position: relative;
+}
+
 .intro-wrapper {
     height: 100%;
 }
@@ -425,12 +438,71 @@ a:hover {
     align-items: flex-end;
     justify-content: space-between;
     column-gap: 20px;
+    z-index: 2;
 }
 
 .intro--index {
     height: 600px;
-    background: #000 no-repeat url("../images/intro-bg.png") center / cover;
+    background: #01131d;
     margin-bottom: 30px;
+}
+
+#intro-carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+#intro-carousel .slick-list,
+#intro-carousel .slick-track {
+    height: 100%;
+}
+
+.slider-item {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-item__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-ctl {
+    position: absolute;
+    bottom: 13px;
+    left: 460px;
+}
+.carousel-ctl__button {
+   display: inline-block;
+   width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-color: transparent;
+   background-color: transparent;
+   outline: none;
+   font-size: 0;
+   color: transparent;
+   cursor: pointer;
+   margin: 0px 4px;
+}
+
+.carousel-ctl__button--prev {
+   border-width: 10px 10px 10px 0;
+   border-right-color: #fff;
+}
+
+.carousel-ctl__button--next {
+   border-width: 10px 0 10px 10px;
+   border-left-color: #fff;
 }
 
 .brand {
@@ -555,17 +627,73 @@ a:hover {
 
 .reviews {
     position: relative;
+    overflow: hidden;
 }
-
-.reviews::before {
+.reviews::before,
+.reviews::after {
     content: "";
     display: block;
-    background: url("../images/reviews/lines.svg") no-repeat;
-    width: 92px;
-    height: 126px;
+    width: 10px;
+    height: 100%;
     position: absolute;
-    top: -15px;
-    z-index: -1;
+    top: 0;
+    z-index: 1;
+}
+
+.reviews:before {
+    left: 0;
+    background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+}
+
+.reviews:after {
+    right: 0;
+    background-image: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+}
+
+.review-item {
+    display: none;
+    padding: 0 10px;
+}
+
+.reviews .slick-list {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.reviews .slick-dots {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+}
+
+.reviews .slick-dots li {
+    margin: 0 5px;
+}
+
+.reviews .slick-dots li.slick-active button {
+    background-color: #004AF2;
+    box-shadow: 0 0 0 5px rgba(0, 74, 242, .11);
+}
+
+.reviews .slick-dots button {
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background: #DBDBDB;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: transparent;
+    font-size: 0;
+    transition: box-shadow .2s linear;
+}
+
+.reviews .slick-dots button:focus {
+    outline: none;
 }
 
 .clients-footer {
@@ -585,9 +713,21 @@ a:hover {
 
 .review-item__header {
     display: flex;
+    position: relative;
     gap: 20px;
     align-items: center;
     margin-bottom: 30px;
+}
+
+.review-item__header::before {
+    content: "";
+    display: block;
+    background: url("../images/reviews/lines.svg") no-repeat;
+    width: 92px;
+    height: 126px;
+    position: absolute;
+    top: -15px;
+    z-index: -1;
 }
 
 .review-item__person {
@@ -815,12 +955,16 @@ a:hover {
     top: 0px;
     left: 0px;
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 45px;
     overflow: auto;
+}
+
+.modal.show {
+    display: flex;
 }
 
 .modal-wrapper {
@@ -1032,10 +1176,6 @@ a:hover {
         background-color: rgba(0, 0, 0, .9);
     }
 
-    .navbar-nav.collapsed {
-        display: none;
-    }
-
     .navbar-nav {
         background-color: rgba(0, 0, 0, .85);
         position: absolute;
@@ -1047,6 +1187,12 @@ a:hover {
         align-items: stretch;
         text-align: right;
         padding: 5px 50px 0px;
+        transform: translateX(100vw);
+        transition: transform 250ms ease-out;
+    }
+
+    .navbar-nav.show {
+        transform: translateX(0);
     }
 
     .navbar-toggler {
@@ -1064,6 +1210,11 @@ a:hover {
         align-items: center;
         padding-top: calc(var(--header-height) + 25px);
         padding-bottom: 25px;
+    }
+
+    .carousel-ctl {
+        left: 50%;
+        transform: translate(-50%);
     }
 
     .callback--index {
