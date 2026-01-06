@@ -288,6 +288,7 @@ a:hover {
 
 .page {
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .content-center {
