@@ -1182,7 +1182,8 @@ a:hover {
         left: 0;
         right: 0;
         top: 100%;
-        min-height: calc(100vh - var(--header-height));
+        height: calc(100vh - var(--header-height));
+        overflow: auto;
         flex-direction: column;
         align-items: stretch;
         text-align: right;
