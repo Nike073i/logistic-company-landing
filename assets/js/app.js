@@ -262,14 +262,15 @@ $(document).ready(() => {
   const NAVBAR_SHOW_CLASSNAME = 'show';
 
   const $navbar = $(NAVBAR_SELECTOR);
-  function closeMenu(e) {
+  function toggleMenu(e) {
     e.preventDefault();
     $navbar.toggleClass(NAVBAR_SHOW_CLASSNAME);
+    $body.toggleClass(NOSCROLL_CLASSNAME);
   }
 
   if (isExists($navbar)) {
-    $(TOGGLER_SELECTOR).click(closeMenu);
-    $(NAV_ITEM_SELECTOR).click(closeMenu);
+    $(TOGGLER_SELECTOR).click(toggleMenu);
+    $(NAV_ITEM_SELECTOR).click(toggleMenu);
   }
 
   /* 
